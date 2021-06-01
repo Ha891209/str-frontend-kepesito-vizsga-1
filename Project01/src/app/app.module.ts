@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 
 import { ToastrModule } from 'ngx-toastr';
 import { CardComponent } from './card/card.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent
+    CardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

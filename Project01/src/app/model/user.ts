@@ -1,5 +1,7 @@
-export class User {
-    imgSrc: string = '';
-    name: string = '';
-    commit: number = 0;
+
+export interface Contributor {
+    login: string;
+    id: number;
+    avatar_url: string;
+    contributions: number;
 }

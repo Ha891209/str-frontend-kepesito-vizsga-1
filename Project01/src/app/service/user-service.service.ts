@@ -1,18 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../model/user';
+import { Contributor } from '../model/user';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  BaseURL: string = "https://api.github.com/repos/angular/angular/contributors?per_page=100"
+  urlAll = "https://api.github.com/repos/angular/angular/contributors?per_page=100";
 
-  constructor(private http: HttpClient) { }
+  urlRepos = "https://api.github.com/users";
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.BaseURL);
+  constructor(
+    private httpClient: HttpClient,
+  ) { }
+
+  getUser(): Observable<Contributor[]> {
+    return this.httpClient.get<Contributor[]>(this.urlAll)
   }
+
+  getUserById(login: string): Observable<Contributor> {
+    return this.httpClient.get<Contributor>(`${this.urlRepos}/${login}/repos`);
+  }
+
 }
