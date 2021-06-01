@@ -1,6 +1,5 @@
 export class User {
-    id?: number;
-    image: string = '';
+    imgSrc: string = '';
     name: string = '';
-    commits: number = 0;
+    commit: number = 0;
 }
