@@ -1,14 +1,16 @@
-<div class="card h-100">
-    <div class="github">
-        <img src="{{userImg}}" class="card-img-top" alt="Card image">
-        @github
-        <i class="fa fa-cog" aria-hidden="true"></i>
+<div class="card" style="width: 18rem;">
+    <div class="card-top d-flex px-3 pt-3">
+        <img class="card-img" [src]="user.avatar_url" [alt]="user.avatar_url">
+        <div class="text-muted px-2 align-self-end">
+            @github
+        </div>
+        <div class="justify-content-right">
+            <i class="fa fa-crosshairs"></i>
+        </div>
     </div>
     <div class="card-body">
-        <h3 class="card-title">{{userName}}</h3>
-        {{commits}} commits
+        <h5 class="card-title font-weight-bold">{{user.login}}</h5>
+        <p class="card-text text-muted">{{user.contributions}} commits</p>
     </div>
-    <div class="button">
-        <a [routerLink]="['/repo', userName]" class="btn btn-outline-primary">VIEW REPOSITORIES</a>
-    </div>
+    <a href="#" class="btn btn-outline-primary mx-auto mb-3">VIEW REPOSITORIES</a>
 </div>

@@ -1,7 +1,7 @@
 
-export interface Contributor {
-    login: string;
-    id: number;
-    avatar_url: string;
-    contributions: number;
+export class User {
+    id?: number = 0;
+    avatar_url: string = '';
+    login: string = '';
+    contributions: number = 0;
 }

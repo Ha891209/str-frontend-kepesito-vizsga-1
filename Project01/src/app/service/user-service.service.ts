@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Contributor } from '../model/user';
+import { User } from '../model/user';
 
 
 @Injectable({
@@ -9,20 +9,12 @@ import { Contributor } from '../model/user';
 })
 export class UserService {
 
-  urlAll = "https://api.github.com/repos/angular/angular/contributors?per_page=100";
-
-  urlRepos = "https://api.github.com/users";
+  apiURL: string = "https://api.github.com/repos/angular/angular/contributors?page=1&per_page=100"
 
   constructor(
-    private httpClient: HttpClient,
-  ) { }
+    private http: HttpClient) { }
 
-  getUser(): Observable<Contributor[]> {
-    return this.httpClient.get<Contributor[]>(this.urlAll)
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.apiURL);
   }
-
-  getUserById(login: string): Observable<Contributor> {
-    return this.httpClient.get<Contributor>(`${this.urlRepos}/${login}/repos`);
-  }
-
 }
