@@ -8,7 +8,7 @@ import { User } from 'src/app/model/user';
 })
 export class CardComponent implements OnInit {
 
-  @Input() user = new User();
+  @Input() user: User = new User();
 
   constructor() { }
 
