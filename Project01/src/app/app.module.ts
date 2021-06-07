@@ -23,7 +23,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ToastrModule,
+    ToastrModule.forRoot(),
     HttpClientModule,
     InfiniteScrollModule
 

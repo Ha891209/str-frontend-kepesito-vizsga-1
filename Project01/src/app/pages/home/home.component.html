@@ -2,7 +2,8 @@
     <h3>Top Contributors</h3>
     <hr>
 </div>
-<div class="card-container d-flex flex-row flex-wrap justify-content-around">
-    <app-card [user]="userCard" *ngFor="let userCard of userCards | async">
+<div class="card-container d-flex flex-row flex-wrap justify-content-around" infiniteScroll [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+    <app-card [user]="userCard" *ngFor="let userCard of userCards | async | slice:startItem:endItem">
     </app-card>
 </div>
